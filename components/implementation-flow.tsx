@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { MessageSquare, PlayCircle, Settings, CheckCircle, Headphones } from "lucide-react"
+import { MessageSquare, PlayCircle, Settings, CheckCircle, Headphones, FileSearch } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function ImplementationFlow() {
@@ -11,20 +11,19 @@ export default function ImplementationFlow() {
       title: "お問い合わせ",
       description: "まずはお気軽にお問い合わせください。専門スタッフが対応いたします。",
       icon: <MessageSquare className="h-6 w-6" />,
-      actions: [{ label: "お問い合わせ", primary: true }],
     },
     {
-      id: "consultation",
-      title: "AIによる課題分析・提案",
-      description: "AIが貴社の配送業務を分析し、最適なソリューションを提案します。専門スタッフがサポートします。",
-      icon: <MessageSquare className="h-6 w-6" />,
+      id: "analysis",
+      title: "業務分析・提案",
+      description: "専門スタッフが貴社の配送業務を詳細に分析し、最適なソリューションを提案します。",
+      icon: <FileSearch className="h-6 w-6" />,
     },
     {
-      id: "trial",
-      title: "無料トライアル",
-      description: "1ヶ月間の無料トライアルで効果を体感。実際の業務データで最適化効果を確認できます。",
+      id: "demo",
+      title: "デモンストレーション",
+      description:
+        "必要に応じて実際のシステムデモで効果を体感。貴社の業務データを使った効果シミュレーションも可能です。",
       icon: <PlayCircle className="h-6 w-6" />,
-      actions: [{ label: "無料トライアル申込み", primary: true }],
     },
     {
       id: "setup",

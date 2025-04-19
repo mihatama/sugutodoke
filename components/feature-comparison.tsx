@@ -62,7 +62,7 @@ export default function FeatureComparison() {
             <tr>
               <th className="p-4 text-left border-b-2 border-gray-200">機能</th>
               <th className="p-4 text-center border-b-2 border-gray-200">従来の方法</th>
-              <th className="p-4 text-center border-b-2 border-gray-200">RouteOptimizer</th>
+              <th className="p-4 text-center border-b-2 border-gray-200">スグとどけ</th>
               <th className="p-4 text-left border-b-2 border-gray-200">詳細</th>
             </tr>
           </thead>

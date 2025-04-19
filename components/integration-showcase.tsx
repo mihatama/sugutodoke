@@ -21,13 +21,6 @@ export default function IntegrationShowcase() {
       image: "/aws-icon.jpg",
     },
     {
-      id: "google",
-      name: "Google OR-Tools",
-      description: "Google OR-Toolsを活用した高度な最適化アルゴリズムで、複雑な配送ルートを効率的に計算します。",
-      features: ["高度なルート最適化アルゴリズム", "複数の制約条件を考慮した計算", "大規模な配送計画の高速処理"],
-      image: "/google-or-tools-icon-new.jpg",
-    },
-    {
       id: "custom",
       name: "カスタム連携",
       description:

@@ -10,26 +10,23 @@ import {
   ArrowRight,
   Phone,
   Building,
-  Recycle,
   Map,
   Clock,
   DollarSign,
   Brain,
   Sparkles,
   Cpu,
-  MessageSquare,
+  Users,
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import RouteAnimation from "../components/route-animation"
 import IndustrySelector from "../components/industry-selector"
 import IntegrationShowcase from "../components/integration-showcase"
-import TestimonialCarousel from "../components/testimonial-carousel"
 import FeatureComparison from "../components/feature-comparison"
 import { ContactForm } from "../components/contact-form"
-import RouteOptimizationMap from "../components/route-optimization-map"
 import ImplementationFlow from "../components/implementation-flow"
+import RouteMapVisualization from "../components/route-map-visualization"
 
 export default function Home() {
   return (
@@ -64,8 +61,8 @@ export default function Home() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Button size="sm" className="bg-primary-600 hover:bg-primary-700">
-              無料トライアル
+            <Button size="sm" className="bg-primary-600 hover:bg-primary-700" asChild>
+              <Link href="#contact">お問い合わせ</Link>
             </Button>
           </div>
         </div>
@@ -80,24 +77,19 @@ export default function Home() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="inline-block rounded-lg bg-primary-100 px-3 py-1 text-sm text-primary-800 flex items-center gap-1">
                   <Sparkles className="h-3.5 w-3.5" />
-                  <span>次世代AI配送ルート最適化</span>
+                  <span>次世代配送ルート最適化</span>
                 </div>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-                  配送ルートを<span className="text-primary-600">AI</span>で最適化
+                  配送ルートを<span className="text-primary-600">最適化</span>
                 </h1>
                 <p className="max-w-[600px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   古紙回収から始まり、今ではあらゆる業種に対応。APIの提供、アプリ開発、既存システムとの連携も可能です。
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button size="lg" className="bg-primary-600 hover:bg-primary-700 gap-1">
-                    無料トライアルを始める <ArrowRight className="h-4 w-4" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-primary-600 text-primary-600 hover:bg-primary-50"
-                  >
-                    デモを見る
+                  <Button size="lg" className="bg-primary-600 hover:bg-primary-700 gap-1" asChild>
+                    <Link href="#contact">
+                      お問い合わせ <ArrowRight className="h-4 w-4" />
+                    </Link>
                   </Button>
                 </div>
                 <div className="flex items-center gap-4 text-sm">
@@ -112,7 +104,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative lg:ml-auto">
-                <RouteAnimation />
+                <RouteMapVisualization />
               </div>
             </div>
           </div>
@@ -127,20 +119,15 @@ export default function Home() {
                   <Brain className="h-3.5 w-3.5" />
                   <span>仕組み</span>
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  AIによるルート最適化の仕組み
-                </h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">ルート最適化の仕組み</h2>
                 <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   複雑な配送ルートを最適化し、時間とコストを削減します。
                 </p>
               </div>
             </div>
 
-            <div className="mt-12 grid lg:grid-cols-2 gap-8 items-center">
-              <div className="order-2 lg:order-1">
-                <RouteOptimizationMap />
-              </div>
-              <div className="order-1 lg:order-2 space-y-6">
+            <div className="mt-12 grid lg:grid-cols-3 gap-8 items-start">
+              <div className="space-y-6">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
                     <Map className="h-6 w-6 text-primary-600" />
@@ -164,7 +151,9 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
+              </div>
 
+              <div className="space-y-6">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
                     <DollarSign className="h-6 w-6 text-primary-600" />
@@ -177,7 +166,43 @@ export default function Home() {
                   </div>
                 </div>
 
-                <Button className="mt-4 bg-primary-600 hover:bg-primary-700">詳細を見る</Button>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+                    <Users className="h-6 w-6 text-primary-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">乗車人数管理</h3>
+                    <p className="text-gray-600">
+                      デマンドバスなどの乗車人数制限を考慮したルート設計。最適な乗車順序を提案します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+                    <Truck className="h-6 w-6 text-primary-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">車両の最適配置</h3>
+                    <p className="text-gray-600">
+                      複数車両の場合、各車両の特性や積載量を考慮した最適な配車計画を提案します。
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+                    <BarChart3 className="h-6 w-6 text-primary-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">データ分析と改善</h3>
+                    <p className="text-gray-600">
+                      過去の配送データを分析し、継続的な改善提案を行います。季節変動も考慮します。
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -196,7 +221,7 @@ export default function Home() {
                   配送業務の効率化を実現する機能
                 </h2>
                 <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  AIを活用した最適なルート提案で、配送業務の効率化を実現します。
+                  最適なルート提案で、配送業務の効率化を実現します。
                 </p>
               </div>
             </div>
@@ -206,7 +231,7 @@ export default function Home() {
                   <div className="rounded-full p-3 bg-primary-100">
                     <Truck className="h-6 w-6 text-primary-600" />
                   </div>
-                  <h3 className="text-xl font-bold">AIルート最適化</h3>
+                  <h3 className="text-xl font-bold">ルート最適化</h3>
                   <p className="text-gray-600">過去のデータと交通状況を分析し、最も効率的な配送ルートを提案します。</p>
                 </CardContent>
               </Card>
@@ -326,7 +351,7 @@ export default function Home() {
                   既存システムとシームレスに連携
                 </h2>
                 <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  kintone、AWS、Google OR-Toolsなど、様々なシステムと連携可能です。
+                  kintone、AWSなど、様々なシステムと連携可能です。
                 </p>
               </div>
             </div>
@@ -349,15 +374,6 @@ export default function Home() {
                 <p className="max-w-[600px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   RESTful APIを提供し、お客様独自のシステムやアプリケーションとの連携が可能です。
                 </p>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-primary-600 text-primary-600 hover:bg-primary-50 gap-1"
-                  >
-                    API仕様書を見る <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </div>
               </div>
               <div className="relative lg:ml-auto">
                 <div className="rounded-lg bg-gray-900 p-4 overflow-hidden shadow-lg">
@@ -413,79 +429,6 @@ fetch('https://api.sugutodoke.com/v1/optimize', {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="py-16 bg-primary-50">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-primary-100 px-3 py-1 text-sm text-primary-800 flex items-center gap-1">
-                  <MessageSquare className="h-3.5 w-3.5" />
-                  <span>お客様の声</span>
-                </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">導入企業からの評価</h2>
-                <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  実際に導入いただいたお客様からの声をご紹介します。
-                </p>
-              </div>
-            </div>
-            <div className="py-12">
-              <TestimonialCarousel />
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16 bg-primary-600 text-white">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-              <div className="flex flex-col justify-center space-y-4">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  配送業務の効率化を今すぐ始めましょう
-                </h2>
-                <p className="max-w-[600px] text-primary-100 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  無料トライアルで効果を実感してください。導入サポートも充実しています。
-                </p>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button size="lg" variant="secondary" className="bg-white text-primary-600 hover:bg-primary-50 gap-1">
-                    無料トライアルを始める <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-              <div className="relative mx-auto max-w-md">
-                <div className="overflow-hidden rounded-lg bg-white/10 backdrop-blur p-8">
-                  <div className="grid gap-4">
-                    <div className="flex items-center gap-4">
-                      <div className="rounded-full p-2 bg-white/20">
-                        <Zap className="h-4 w-4" />
-                      </div>
-                      <div className="font-medium">配送時間20%削減</div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="rounded-full p-2 bg-white/20">
-                        <Truck className="h-4 w-4" />
-                      </div>
-                      <div className="font-medium">燃料コスト15%削減</div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="rounded-full p-2 bg-white/20">
-                        <Building className="h-4 w-4" />
-                      </div>
-                      <div className="font-medium">顧客満足度30%向上</div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="rounded-full p-2 bg-white/20">
-                        <Recycle className="h-4 w-4" />
-                      </div>
-                      <div className="font-medium">CO2排出量削減に貢献</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Form */}
         <section id="contact" className="py-16 bg-white">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -494,9 +437,7 @@ fetch('https://api.sugutodoke.com/v1/optimize', {
                   <Phone className="h-3.5 w-3.5" />
                   <span>お問い合わせ</span>
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  詳細情報のご請求・ご質問
-                </h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">お問い合わせ</h2>
                 <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   API連携やカスタマイズについてもお気軽にお問い合わせください。
                 </p>
