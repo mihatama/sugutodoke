@@ -82,56 +82,71 @@ export default function IndustrySelector() {
   return (
     <div className="w-full max-w-5xl mx-auto">
       <Tabs defaultValue="recycling" value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid grid-cols-3 md:grid-cols-7 mb-8">
+        <div className="mb-8 overflow-x-auto pb-2">
+          <TabsList className="inline-flex min-w-max">
+            {industries.map((industry) => (
+              <TabsTrigger
+                key={industry.id}
+                value={industry.id}
+                className="flex flex-col items-center gap-2 py-3 px-4 min-w-[80px]"
+              >
+                <div className="flex items-center justify-center h-8 w-8">{industry.icon}</div>
+                <span className="text-xs whitespace-normal text-center">{industry.name}</span>
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </div>
+
+        <div className="mt-8 pt-4">
           {industries.map((industry) => (
-            <TabsTrigger key={industry.id} value={industry.id} className="flex flex-col items-center gap-2 py-3">
-              {industry.icon}
-              <span className="text-xs">{industry.name}</span>
-            </TabsTrigger>
+            <TabsContent key={industry.id} value={industry.id} className="mt-0">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="grid md:grid-cols-2 gap-8 items-center"
+              >
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">{industry.name}向けソリューション</h3>
+                  <p className="text-gray-600 mb-6">{industry.description}</p>
+                  <ul className="space-y-3">
+                    {industry.benefits.map((benefit, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <div className="rounded-full p-1 bg-green-100 text-green-600 mt-0.5">
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M20 6L9 17L4 12"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="relative rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src={industry.image || "/placeholder.svg"}
+                    alt={`${industry.name}向けソリューション`}
+                    width={500}
+                    height={300}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </motion.div>
+            </TabsContent>
           ))}
-        </TabsList>
-        {industries.map((industry) => (
-          <TabsContent key={industry.id} value={industry.id} className="mt-0">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="grid md:grid-cols-2 gap-8 items-center"
-            >
-              <div>
-                <h3 className="text-2xl font-bold mb-4">{industry.name}向けソリューション</h3>
-                <p className="text-gray-600 mb-6">{industry.description}</p>
-                <ul className="space-y-3">
-                  {industry.benefits.map((benefit, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <div className="rounded-full p-1 bg-green-100 text-green-600 mt-0.5">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M20 6L9 17L4 12"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </div>
-                      <span>{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src={industry.image || "/placeholder.svg"}
-                  alt={`${industry.name}向けソリューション`}
-                  width={500}
-                  height={300}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </motion.div>
-          </TabsContent>
-        ))}
+        </div>
       </Tabs>
     </div>
   )

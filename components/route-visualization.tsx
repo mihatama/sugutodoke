@@ -86,9 +86,12 @@ export default function RouteVisualization() {
       </div>
 
       <div className="p-4 bg-white border-t">
-        <div className="flex justify-between mb-3">
+        <div className="flex justify-between mb-3 overflow-x-auto">
           {steps.map((s, i) => (
-            <div key={i} className={`flex flex-col items-center gap-1 ${i === step ? "opacity-100" : "opacity-40"}`}>
+            <div
+              key={i}
+              className={`flex flex-col items-center gap-1 px-1 min-w-[70px] ${i === step ? "opacity-100" : "opacity-40"}`}
+            >
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center
                 ${i === step ? "bg-primary-100 text-primary-600" : "bg-gray-100 text-gray-400"}`}

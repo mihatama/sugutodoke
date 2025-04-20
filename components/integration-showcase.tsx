@@ -33,9 +33,9 @@ export default function IntegrationShowcase() {
   return (
     <div className="w-full max-w-5xl mx-auto">
       <Tabs defaultValue="kintone" className="w-full">
-        <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-8">
+        <TabsList className="grid grid-cols-2 md:grid-cols-3 mb-8">
           {integrations.map((integration) => (
-            <TabsTrigger key={integration.id} value={integration.id}>
+            <TabsTrigger key={integration.id} value={integration.id} className="px-2 py-1.5">
               {integration.name}
             </TabsTrigger>
           ))}
