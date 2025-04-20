@@ -26,7 +26,7 @@ import IntegrationShowcase from "../components/integration-showcase"
 import FeatureComparison from "../components/feature-comparison"
 import { ContactForm } from "../components/contact-form"
 import ImplementationFlow from "../components/implementation-flow"
-import RouteMapVisualization from "../components/route-map-visualization"
+import RouteVisualization from "../components/route-visualization"
 
 export default function Home() {
   return (
@@ -104,7 +104,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative lg:ml-auto">
-                <RouteMapVisualization />
+                <RouteVisualization />
               </div>
             </div>
           </div>
@@ -457,12 +457,6 @@ fetch('https://api.sugutodoke.com/v1/optimize', {
             <span className="text-xl font-bold text-primary-600">スグとどけ</span>
           </div>
           <nav className="flex flex-wrap gap-4 sm:gap-6">
-            <Link href="#" className="text-sm hover:underline underline-offset-4">
-              利用規約
-            </Link>
-            <Link href="#" className="text-sm hover:underline underline-offset-4">
-              プライバシーポリシー
-            </Link>
             <Link
               href="https://mihatama.com/"
               target="_blank"
@@ -471,11 +465,11 @@ fetch('https://api.sugutodoke.com/v1/optimize', {
             >
               会社概要
             </Link>
-            <Link href="#contact" className="text-sm hover:underline underline-offset-4">
-              お問い合わせ
+            <Link href="/privacy-policy" className="text-sm hover:underline underline-offset-4">
+              プライバシーポリシー
             </Link>
           </nav>
-          <div className="text-sm text-gray-500">© 2024 スグとどけ. All rights reserved.</div>
+          <div className="text-sm text-gray-500">© 2025　みはたま</div>
         </div>
       </footer>
     </div>

@@ -5,7 +5,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Truck, Navigation, Clock, TrendingDown } from "lucide-react"
 
-export default function RouteOptimizationMap() {
+export default function RouteVisualization() {
   const [step, setStep] = useState(0)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -33,41 +33,31 @@ export default function RouteOptimizationMap() {
   ]
 
   useEffect(() => {
-    // Start animation sequence
     const startAnimation = () => {
       setStep(0)
-
-      // Sequence through steps
       const interval = setInterval(() => {
         setStep((prev) => {
           const nextStep = prev + 1
           if (nextStep >= steps.length) {
             clearInterval(interval)
-
-            // Restart after a pause
             setTimeout(startAnimation, 3000)
             return 0
           }
           return nextStep
         })
       }, 3000)
-
       intervalRef.current = interval
     }
 
     startAnimation()
-
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current)
-      }
+      if (intervalRef.current) clearInterval(intervalRef.current)
     }
   }, [])
 
   return (
     <div className="relative w-full max-w-2xl mx-auto rounded-xl overflow-hidden shadow-xl bg-white">
       <div className="aspect-[4/3] relative">
-        {/* Using the provided map image */}
         <Image
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-WQO2JngYBSxSAZF8fpQEixxZ1IY0Pt.png"
           alt="配送ルート最適化マップ"
@@ -75,7 +65,6 @@ export default function RouteOptimizationMap() {
           className="object-cover"
         />
 
-        {/* Optimization indicator - only show in final step */}
         {step === 3 && (
           <motion.div
             className="absolute bottom-4 right-4 bg-white/90 backdrop-blur rounded-lg p-3 shadow-lg z-20"
@@ -96,7 +85,6 @@ export default function RouteOptimizationMap() {
         )}
       </div>
 
-      {/* Step indicator and explanation */}
       <div className="p-4 bg-white border-t">
         <div className="flex justify-between mb-3">
           {steps.map((s, i) => (
