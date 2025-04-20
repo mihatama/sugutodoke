@@ -14,10 +14,9 @@ export function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     if (!e.currentTarget.checkValidity()) {
-      return // フォームのバリデーションに失敗した場合は何もしない
+      return
     }
     setLoading(true)
-    // ローディング表示のみ - 実際の送信はFormSubmitが処理
     setTimeout(() => {
       setLoading(false)
     }, 2000)
@@ -25,17 +24,10 @@ export function ContactForm() {
 
   return (
     <form action="https://formsubmit.co/info@mihatama.com" method="POST" onSubmit={handleSubmit} className="space-y-6">
-      {/* FormSubmit用の設定 */}
       <input type="hidden" name="_subject" value="【スグとどけ】お問い合わせがありました" />
       <input type="hidden" name="_template" value="table" />
-
-      {/* サンクスページへのリダイレクト設定 */}
       <input type="hidden" name="_next" value="https://sugutodoke.com/thanks" />
-
-      {/* スパム対策のハニーポット */}
       <input type="text" name="_honey" style={{ display: "none" }} />
-
-      {/* 自動返信メールの設定 */}
       <input
         type="hidden"
         name="_autoresponse"

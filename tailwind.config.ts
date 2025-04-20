@@ -26,14 +26,14 @@ const config: Config = {
         foreground: "hsl(var(--foreground))",
         pageBg: "#F5F2FF",
         primary: {
-          DEFAULT: "#af33ff", // Main purple from logo
+          DEFAULT: "#af33ff",
           foreground: "#ffffff",
           50: "#f9f5ff",
           100: "#f2e8ff",
           200: "#e9d5ff",
           300: "#d8b4fe",
           400: "#c084fc",
-          500: "#af33ff", // Main color
+          500: "#af33ff",
           600: "#9333ea",
           700: "#7e22ce",
           800: "#6b21a8",
@@ -41,7 +41,7 @@ const config: Config = {
           950: "#3b0764",
         },
         secondary: {
-          DEFAULT: "#d89aff", // Lighter purple from logo
+          DEFAULT: "#d89aff",
           foreground: "#ffffff",
           50: "#faf5ff",
           100: "#f3e8ff",

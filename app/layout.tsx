@@ -4,14 +4,12 @@ import { ThemeProvider } from "@/components/theme-provider"
 import StructuredData from "@/components/StructuredData"
 import type { Metadata } from "next"
 
-// サブセットを指定して必要な文字だけ読み込む
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap", // フォント読み込み中にシステムフォントを表示
+  display: "swap",
   preload: true,
 })
 
-// メタデータの設定
 export const metadata: Metadata = {
   title: "スグとどけ - AI配送ルート最適化サービス",
   description: "AIを活用した配送ルート最適化サービス。古紙回収から始まり、今ではあらゆる業種に対応。",
@@ -23,7 +21,6 @@ export const metadata: Metadata = {
     generator: 'v0.dev'
 }
 
-// Google Analytics 4の追加
 export default function RootLayout({
   children,
 }: Readonly<{
