@@ -7,41 +7,20 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Textarea } from "@/components/ui/textarea"
-import { CheckCircle, Loader2 } from "lucide-react"
+import { Loader2 } from "lucide-react"
 
 export function ContactForm() {
   const [loading, setLoading] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
 
-  // FormSubmitの初回送信後にリダイレクトされるため、
-  // クライアント側で送信完了状態を管理
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    if (!submitted) {
-      setLoading(true)
-      // 実際の送信はFormSubmitが処理するので、ここでは何もしない
-      // ローディング表示のためだけに使用
-      setTimeout(() => {
-        setLoading(false)
-      }, 2000)
-    } else {
-      e.preventDefault()
-      setSubmitted(false)
+    if (!e.currentTarget.checkValidity()) {
+      return // フォームのバリデーションに失敗した場合は何もしない
     }
-  }
-
-  if (submitted) {
-    return (
-      <div className="flex flex-col items-center justify-center space-y-4 text-center py-12">
-        <div className="rounded-full bg-primary-100 p-3">
-          <CheckCircle className="h-8 w-8 text-primary-600" />
-        </div>
-        <h3 className="text-2xl font-bold">お問い合わせありがとうございます</h3>
-        <p className="text-gray-500 max-w-md">担当者が内容を確認し、3営業日以内にご連絡いたします。</p>
-        <Button onClick={() => setSubmitted(false)} className="mt-4 bg-primary-600 hover:bg-primary-700">
-          新しいお問い合わせ
-        </Button>
-      </div>
-    )
+    setLoading(true)
+    // ローディング表示のみ - 実際の送信はFormSubmitが処理
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
   }
 
   return (
@@ -50,13 +29,13 @@ export function ContactForm() {
       <input type="hidden" name="_subject" value="【スグとどけ】お問い合わせがありました" />
       <input type="hidden" name="_template" value="table" />
 
-      {/* 送信後に自サイトにリダイレクトする場合は以下を有効化 */}
-      {/* <input type="hidden" name="_next" value="https://sugutodoke.com/thanks" /> */}
+      {/* サンクスページへのリダイレクト設定 */}
+      <input type="hidden" name="_next" value="https://sugutodoke.com/thanks" />
 
       {/* スパム対策のハニーポット */}
       <input type="text" name="_honey" style={{ display: "none" }} />
 
-      {/* 自動返信メールの設定（オプション） */}
+      {/* 自動返信メールの設定 */}
       <input
         type="hidden"
         name="_autoresponse"
