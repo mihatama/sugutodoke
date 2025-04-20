@@ -24,6 +24,7 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        pageBg: "#F5F2FF",
         primary: {
           DEFAULT: "#af33ff", // Main purple from logo
           foreground: "#ffffff",
