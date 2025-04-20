@@ -32,7 +32,7 @@ export function ContactForm() {
           <CheckCircle className="h-8 w-8 text-primary-600" />
         </div>
         <h3 className="text-2xl font-bold">お問い合わせありがとうございます</h3>
-        <p className="text-gray-500 max-w-md">担当者が内容を確認し、1営業日以内にご連絡いたします。</p>
+        <p className="text-gray-500 max-w-md">担当者が内容を確認し、3営業日以内にご連絡いたします。</p>
         <Button onClick={() => setSubmitted(false)} className="mt-4 bg-primary-600 hover:bg-primary-700">
           新しいお問い合わせ
         </Button>
