@@ -34,7 +34,13 @@ export default function Home() {
       <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
-            <Image src="/loot-logo.png" alt="スグとどけ ロゴ" width={32} height={32} />
+            <Image
+              src="/loot-logo.png"
+              alt="スグとどけ - AI配送ルート最適化サービスのロゴ"
+              width={32}
+              height={32}
+              priority
+            />
             <span className="text-xl font-bold text-primary-600">スグとどけ</span>
           </div>
           <nav className="hidden md:flex items-center gap-6">
