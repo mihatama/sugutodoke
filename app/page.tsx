@@ -463,10 +463,15 @@ fetch('https://api.sugutodoke.com/v1/optimize', {
             <Link href="#" className="text-sm hover:underline underline-offset-4">
               プライバシーポリシー
             </Link>
-            <Link href="#" className="text-sm hover:underline underline-offset-4">
+            <Link
+              href="https://mihatama.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm hover:underline underline-offset-4"
+            >
               会社概要
             </Link>
-            <Link href="#" className="text-sm hover:underline underline-offset-4">
+            <Link href="#contact" className="text-sm hover:underline underline-offset-4">
               お問い合わせ
             </Link>
           </nav>
